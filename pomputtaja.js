@@ -18,7 +18,7 @@ var min_x;
 var min_y;
 var max_x;
 var max_y;
-var max_speed = 3;
+var max_speed = 1;
 var firste;
 
 function aloitapomputus() {
@@ -60,7 +60,7 @@ function pomputa() {
     if (maindiv.childNodes[x].nodeType == 1) {
       pomputettavat_x[x] += pomputettavat_vauhtix[x];
       pomputettavat_y[x] += pomputettavat_vauhtiy[x];
-      seinätarkastus(x, 0.999);
+      seinätarkastus(x, 0.1);
       // 		Suuri keskuspainovoima
       // 		painovoimoi(x, maindiv.offsetTop+maindiv.offsetHeight/2, maindiv.offsetLeft+maindiv.offsetWidth/2, -128, 5);
       // 		Yksittäiset painovoimat joka sienelle

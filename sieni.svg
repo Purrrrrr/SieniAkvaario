@@ -1,0 +1,17 @@
+<svg height="200" width="200" viewBox="-100 -100 200 200" xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <path id="top" fill="red" d="M -90 0 A 90,100 0 0,1 90,0 z" />
+  <path id="base" fill="#DDCCBB" d="M -25 0 A 20,80 0 0,0 25,0 z" />
+
+   <circle cx="-40" cy="-72.5" r="9.9" fill="#fff" />
+   <circle cx="-1.25" cy="-73.75" r="10" fill="#fff" />
+   <circle cx="-26.25" cy="-43.75" r="11.11" fill="#fff" />
+
+   <circle cx="-65" cy="-38.75" r="7.69" fill="#fff" />
+   <circle cx="22.5" cy="-47.5" r="8.33" fill="#fff" />
+   <circle cx="-40" cy="-13.75" r="10" fill="#fff" />
+
+   <circle cx="-8.75" cy="-15" r="10" fill="#fff" />
+   <circle cx="48.75" cy="-20" r="10" fill="#fff" />
+   <circle cx="76.25" cy="-23.75" r="7.14" fill="#fff" />
+   <circle cx="47.5" cy="-58.75" r="10" fill="#fff" />
+</svg>

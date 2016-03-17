@@ -1,13 +1,13 @@
 var maindiv;
 var textdiv;
-var pomputettavat_vauhtix=new Array();
-var pomputettavat_vauhtiy=new Array();
-var pomputettavat_x=new Array();
-var pomputettavat_y=new Array();
-var pomputettavat_w=new Array();
-var pomputettavat_h=new Array();
-var pomputettavat_r=new Array();
-var pomputettavat_massa=new Array();
+var pomputettavat_vauhtix=[];
+var pomputettavat_vauhtiy=[];
+var pomputettavat_x=[];
+var pomputettavat_y=[];
+var pomputettavat_w=[];
+var pomputettavat_h=[];
+var pomputettavat_r=[];
+var pomputettavat_massa=[];
 var t;
 var t2;
 var painovoimavakio = 1;
@@ -25,7 +25,7 @@ function aloitapomputus() {
 clearTimeout(t);
 clearTimeout(t2);
 maindiv = document.getElementById('akvaario');
-textdiv = document.getElementById('teksti')
+textdiv = document.getElementById('teksti');
 min_x = maindiv.offsetLeft;
 min_y = maindiv.offsetTop;
 max_x = maindiv.offsetLeft+maindiv.offsetWidth;
@@ -34,8 +34,8 @@ max_y = maindiv.offsetTop+maindiv.offsetHeight;
 		if (maindiv.childNodes[x].nodeType == 1) {
 		maindiv.childNodes[x].style.position = 'absolute';
  		maindiv.childNodes[x].style.visibility = 'visible'; 
-		pomputettavat_x[x] = maindiv.offsetLeft+maindiv.offsetWidth*(0.5+(Math.random()-0.5)*.2);
-		pomputettavat_y[x] = maindiv.offsetTop+maindiv.offsetHeight*(0.5+(Math.random()-0.5)*.2);
+		pomputettavat_x[x] = maindiv.offsetLeft+maindiv.offsetWidth*(0.5+(Math.random()-0.5)*0.2);
+		pomputettavat_y[x] = maindiv.offsetTop+maindiv.offsetHeight*(0.5+(Math.random()-0.5)*0.2);
 		pomputettavat_w[x] = maindiv.childNodes[x].offsetWidth;
 		pomputettavat_h[x] = maindiv.childNodes[x].offsetHeight;
 		pomputettavat_r[x] = (pomputettavat_h[x]+pomputettavat_w[x])/4;
@@ -83,7 +83,7 @@ function pomputa() {
 // gravityangle -= 0.003;
 // 	if (gravityangle > 5)
 // 	gravityangle = -5;
-t=setTimeout("pomputa()",70);
+t=setTimeout(pomputa,70);
 }
 
 function esitäasioita() {
@@ -91,7 +91,7 @@ function esitäasioita() {
 //  + "<br />Nopeuskerroin " + Math.round(10000-Math.sin(gravityangle*Math.PI)*50-30)/10000;
 
 textdiv.innerHTML = 'Liike-energian muutos simulaation aikana:' + Math.round(liikeEnergia()-firste);
-t2=setTimeout("esitäasioita()",1000);
+t2=setTimeout(esitäasioita,1000);
 }
 
 function liikeEnergia() {
@@ -111,19 +111,19 @@ clearTimeout(t);
 function seinätarkastus(x, bounciness) {
 	if (pomputettavat_x[x]+maindiv.childNodes[x].offsetWidth > max_x) {
 	pomputettavat_vauhtix[x] *= -bounciness;
-	pomputettavat_x[x] -= (pomputettavat_x[x]+maindiv.childNodes[x].offsetWidth-max_x)*2
+	pomputettavat_x[x] -= (pomputettavat_x[x]+maindiv.childNodes[x].offsetWidth-max_x)*2;
 	}
 	if (pomputettavat_x[x] < min_x) {
 	pomputettavat_vauhtix[x] *= -bounciness;
-	pomputettavat_x[x] += (min_x-pomputettavat_x[x])*2
+	pomputettavat_x[x] += (min_x-pomputettavat_x[x])*2;
 	}
 	if (pomputettavat_y[x]+maindiv.childNodes[x].offsetHeight > max_y) {
 	pomputettavat_vauhtiy[x] *= -bounciness;
-	pomputettavat_y[x] -= (pomputettavat_y[x]+maindiv.childNodes[x].offsetHeight-max_y)*2
+	pomputettavat_y[x] -= (pomputettavat_y[x]+maindiv.childNodes[x].offsetHeight-max_y)*2;
 	}
 	if (pomputettavat_y[x] < min_y) {
 	pomputettavat_vauhtiy[x] *= -bounciness;
-	pomputettavat_y[x] += (min_y-pomputettavat_y[x])*2
+	pomputettavat_y[x] += (min_y-pomputettavat_y[x])*2;
 	}
 }
 
@@ -153,7 +153,7 @@ var mass_y = pomputettavat_y[x]+grav_element.offsetHeight/2;
 var angle;
 var diff_y = mass_y-gy;
 var diff_x = mass_x-gx;
-var strenght = painovoimavakio*mass*pomputettavat_massa[x]
+var strenght = painovoimavakio*mass*pomputettavat_massa[x];
 // textdiv.innerHTML = strenght;
 var r = Math.pow(diff_x*diff_x+diff_y*diff_y, 0.5);
 var forcevector = 0;
@@ -165,7 +165,7 @@ var forcevector = 0;
 // 	if (r < gravity_object_radius+pomputettavat_r[x])
 // 	forcevector -= pomppuisuusvakio*(gravity_object_radius+pomputettavat_r[x]-r);
 forcevector /= pomputettavat_massa[x];
-	if (diff_x == 0)
+	if (diff_x === 0)
 		if (diff_y > 0)
 		angle = Math.PI*3/2;
 		else angle = Math.PI/2;

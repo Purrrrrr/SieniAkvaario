@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sieniä!</title>
+    <meta charset="UTF-8">
+    <style>
+      body, html {
+        height: 100%;
+        box-sizing: border-box;
+        padding: 0 0 10px 0;
+        margin: 0;
+      }
+      * {
+        box-sizing: inherit;
+      }
+      #akvaario {
+        height: 100%;
+      }
+      #teksti {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        background: black;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="akvaario"></div>
+    <div id="teksti"></div>
+    <script type="text/javascript" src="luosienet.js"></script>
+    <script type="text/javascript" src="pomputtaja.js"></script>
+    <script type="text/javascript">aloitapomputus();</script>
+  </body>
+</html>
